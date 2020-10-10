@@ -1,0 +1,25 @@
+<view  class='multiple_picker_view'>
+    <view class='multiple_before_text'>{{title}}</view>
+    <view class="multiple_name_box" bindtap="openhalfScreenDialog">
+        <view class='multiple_name_text {{selectedValue!=""?"multiple_name_text_color":"multiple_name_text_color_placeholder"}}' >
+            <text wx:if="{{selectedValue}}">{{selectedValue}}</text>
+            <text wx:if="{{selectedValue.length == 0}}">{{placeholder}}</text>
+        </view>
+        <image class='chooce_multiple_image' src='./image/page17_icon_triangle_n@3x.png'></image>
+    </view>
+</view>
+<view class="down_drop">
+    <view class="comment-btn" wx:if="{{show}}">
+        <button 
+            wx:for="{{riderCommentList}}" 
+            wx:for-item="item" 
+            wx:key="item.index"  
+            bindtap="checkboxChange" 
+            data-value="{{item.value}}" 
+            data-index="{{index}}"  
+            checked="{{item.selected}}"
+            class="btn {{item.selected ? 'btn-selected' : ''}}" >
+            {{item.value}}
+        </button>
+    </view> 
+</view>
